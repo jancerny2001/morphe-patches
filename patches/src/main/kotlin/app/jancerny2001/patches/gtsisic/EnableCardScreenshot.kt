@@ -2,6 +2,8 @@ package app.jancerny2001.patches.gtsisic
 
 import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patcher.patch.AppTarget
+import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.Compatibility
 import app.morphe.patcher.patch.bytecodePatch
 import com.android.tools.smali.dexlib2.Opcode
@@ -15,13 +17,18 @@ val enableCardScreenshotPatch = bytecodePatch(
 ) {
     compatibleWith(
         Compatibility(
-            name = "GTSISIC",
-            packageName = "com.bootiq2.gtsisic"
+            name = "Google Tasks",
+            packageName = "com.bootiq2.gtsisic",
+            apkFileType = ApkFileType.APK,
+            appIconColor = 0x4285F4, // Google Tasks blue
+            targets = listOf(
+                AppTarget(version = null) // Latest and all future versions
+            )
         )
     )
 
     execute {
-        val method = SecureFlagMethodFingerprint.method ?: return@execute
+        val method = SecureFlagMethodFingerprint.method
         // Find and replace the addFlags(8192) instruction with clearFlags(8192)
         val instructions = method.instructions
         val addFlagsIndex = instructions.indexOfFirst { instruction ->
