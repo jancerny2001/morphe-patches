@@ -17,12 +17,12 @@ val enableCardScreenshotPatch = bytecodePatch(
 ) {
     compatibleWith(
         Compatibility(
-            name = "Google Tasks",
+            name = "Alive App",
             packageName = "com.bootiq2.gtsisic",
             apkFileType = ApkFileType.APK,
-            appIconColor = 0x4285F4, // Google Tasks blue
+            appIconColor = 0x40b8b8, // Google Tasks blue
             targets = listOf(
-                AppTarget(version = null) // Latest and all future versions
+                AppTarget(version = "3.5.0") // Latest and all future versions
             )
         )
     )

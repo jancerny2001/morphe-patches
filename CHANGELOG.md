@@ -1,26 +1,7 @@
-## [1.1.0](https://github.com/jancerny2001/morphe-patches/compare/v1.0.0...v1.1.0) (2026-08-22)
-
-### ✨ New Features
-
-* Remove template example ([49a3b2e](https://github.com/jancerny2001/morphe-patches/commit/49a3b2e827647918836af731e5dcea8112b8048d))
-
-## [1.1.0-dev.1](https://github.com/jancerny2001/morphe-patches/compare/v1.0.0...v1.1.0-dev.1) (2026-08-22)
-
-### ✨ New Features
-
-* Remove template example ([49a3b2e](https://github.com/jancerny2001/morphe-patches/commit/49a3b2e827647918836af731e5dcea8112b8048d))
-
-## 1.0.0 (2026-08-22)
+## [1.1.1-dev.1](https://github.com/jancerny2001/morphe-patches/compare/v1.1.0...v1.1.1-dev.1) (2026-08-22)
 
 ### 🐛 Bug Fixes
 
-* gtsisic ([0988c5e](https://github.com/jancerny2001/morphe-patches/commit/0988c5eeea305749f2b76265050520018501c0a0))
-* gtsisic 2 ([1c81e11](https://github.com/jancerny2001/morphe-patches/commit/1c81e119061acdc2e3feb829cf9b22478368bbfa))
-* gtsisic 3 ([7419e96](https://github.com/jancerny2001/morphe-patches/commit/7419e9643981379e8dbd2319831289d1e5f15472))
-* gtsisic 4 ([0f340a1](https://github.com/jancerny2001/morphe-patches/commit/0f340a197a9abbfb470a63e4b95f32fbd7932e52))
-* gtsisic 5 ([19fd6f3](https://github.com/jancerny2001/morphe-patches/commit/19fd6f3c2dcf8071c414bc83291c154b0b168cca))
-* gtsisic 5 ([a2a3bfd](https://github.com/jancerny2001/morphe-patches/commit/a2a3bfd41777697fed0f59c1aa330e8d26417857))
-
-### ✨ New Features
-
-* Add gtsisic screenshot ([b5f1d98](https://github.com/jancerny2001/morphe-patches/commit/b5f1d985740594b68faa35259a8d881befa20ca0))
+* App name ([f189be2](https://github.com/jancerny2001/morphe-patches/commit/f189be2839562e983bb7799676d8e395ff6b2e40))
+* App name ([caec4bd](https://github.com/jancerny2001/morphe-patches/commit/caec4bde0f8002963074775e88b398622f3bb278))
+* Remove generated files ([2130c0b](https://github.com/jancerny2001/morphe-patches/commit/2130c0b2636df693003e11c60156e5be9f774c9a))
