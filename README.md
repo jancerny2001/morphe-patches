@@ -4,9 +4,7 @@ jancerny2001 Morphe Patches.
 
 ## ❓ About
 
-Patches for apps I like.
-
-<!-- TODO: Update this about section with a brief introduction/summary about this repo and what it offers. -->
+Currently, this repository contains a single patch for the Czech ISIC app "Alive App" (com.bootiq2.gtsisic) to allow screenshots of cards by clearing the FLAG_SECURE flag.
 
 ### How to use these patches
 
@@ -44,4 +42,4 @@ See the [Morphe documentation](https://github.com/MorpheApp/morphe-documentation
 
 ## 📜 License
 
-UserXYZ Patches are licensed under the [GNU General Public License v3.0](LICENSE)
+jancerny2001 Patches are licensed under the [GNU General Public License v3.0](LICENSE)

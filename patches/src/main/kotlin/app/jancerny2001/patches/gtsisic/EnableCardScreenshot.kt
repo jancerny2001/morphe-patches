@@ -13,16 +13,16 @@ import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstructio
 @Suppress("unused")
 val enableCardScreenshotPatch = bytecodePatch(
     name = "Enable card screenshot",
-    description = "Always clears FLAG_SECURE to allow screenshots on all screens."
+    description = "Allows screenshots of cards by clearing the FLAG_SECURE flag.",
 ) {
     compatibleWith(
         Compatibility(
             name = "Alive App",
             packageName = "com.bootiq2.gtsisic",
             apkFileType = ApkFileType.XAPK,
-            appIconColor = 0x40b8b8, // Google Tasks blue
+            appIconColor = 0x40b8b8,
             targets = listOf(
-                AppTarget(version = "3.5.0") // Latest and all future versions
+                AppTarget(version = "3.5.0")
             )
         )
     )
