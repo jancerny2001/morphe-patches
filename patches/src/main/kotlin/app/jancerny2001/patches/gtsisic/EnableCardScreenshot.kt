@@ -1,14 +1,14 @@
 package app.jancerny2001.patches.gtsisic
 
-import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import app.morphe.patcher.patch.PatchException
 import app.morphe.patcher.patch.AppTarget
 import app.morphe.patcher.patch.ApkFileType
 import app.morphe.patcher.patch.Compatibility
 import app.morphe.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.RegisterRangeInstruction
 
 @Suppress("unused")
 val enableCardScreenshotPatch = bytecodePatch(
@@ -29,21 +29,31 @@ val enableCardScreenshotPatch = bytecodePatch(
 
     execute {
         val method = SecureFlagMethodFingerprint.method
-        // Find and replace the addFlags(8192) instruction with clearFlags(8192)
-        val instructions = method.instructions
-        val addFlagsIndex = instructions.indexOfFirst { instruction ->
-            instruction.opcode == Opcode.INVOKE_VIRTUAL &&
-            instruction is ReferenceInstruction &&
-            (instruction.reference as? MethodReference)?.let {
-                it.name == "addFlags" && it.definingClass == "Landroid/view/Window;"
-            } == true
+        val addFlagsMatch = SecureFlagMethodFingerprint.instructionMatches[1]
+        val addFlagsInstruction = addFlagsMatch.getInstruction<ReferenceInstruction>()
+
+        val replacement = when (addFlagsInstruction) {
+            is FiveRegisterInstruction -> {
+                val registers = listOf(
+                    addFlagsInstruction.registerC,
+                    addFlagsInstruction.registerD,
+                    addFlagsInstruction.registerE,
+                    addFlagsInstruction.registerF,
+                    addFlagsInstruction.registerG
+                ).take(addFlagsInstruction.registerCount)
+
+                "invoke-virtual {${registers.joinToString(", ") { "v$it" }}}, Landroid/view/Window;->clearFlags(I)V"
+            }
+
+            is RegisterRangeInstruction -> {
+                val start = addFlagsInstruction.startRegister
+                val end = start + addFlagsInstruction.registerCount - 1
+                "invoke-virtual/range {v$start .. v$end}, Landroid/view/Window;->clearFlags(I)V"
+            }
+
+            else -> throw PatchException("Unsupported addFlags invoke format: ${addFlagsInstruction.opcode}")
         }
-        
-        if (addFlagsIndex >= 0) {
-            method.replaceInstruction(
-                addFlagsIndex,
-                "invoke-virtual {v0, v1}, Landroid/view/Window;->clearFlags(I)V"
-            )
-        }
+
+        method.replaceInstruction(addFlagsMatch.index, replacement)
     }
 }
