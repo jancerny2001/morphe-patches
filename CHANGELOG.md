@@ -1,3 +1,9 @@
+## [1.2.0-dev.1](https://github.com/jancerny2001/morphe-patches/compare/v1.1.3-dev.1...v1.2.0-dev.1) (2026-08-22)
+
+### ✨ New Features
+
+* Update README and patch desc ([6d14d18](https://github.com/jancerny2001/morphe-patches/commit/6d14d186c091b64b9d33add1e6aa84f020435c0c))
+
 ## [1.1.3-dev.1](https://github.com/jancerny2001/morphe-patches/compare/v1.1.2...v1.1.3-dev.1) (2026-08-22)
 
 ### 🐛 Bug Fixes

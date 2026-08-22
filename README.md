@@ -16,7 +16,7 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.1.3-dev.1](https://github.com/jancerny2001/morphe-patches/releases/tag/v1.1.3-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;1 patches total
+> **[v1.2.0-dev.1](https://github.com/jancerny2001/morphe-patches/releases/tag/v1.2.0-dev.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;1 patches total
 <details open>
 <summary>📦 Alive App&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
@@ -28,7 +28,7 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Enable card screenshot](#enable-card-screenshot) | Always clears FLAG_SECURE to allow screenshots on all screens. |  |
+| [Enable card screenshot](#enable-card-screenshot) | Allows screenshots of cards by clearing the FLAG_SECURE flag. |  |
 
 </details>
 
