@@ -1,4 +1,4 @@
-group = "app.jancerny2001.morphe-patches"
+group = "app.jancerny2001.patches"
 
 patches {
     // TODO: Update this section with your project details.
