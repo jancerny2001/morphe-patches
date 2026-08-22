@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.0-dev.3",
+  "version": "1.0.0",
   "patches": [
     {
       "name": "Enable card screenshot",
@@ -11,6 +11,34 @@
         {
           "packageName": "com.bootiq2.gtsisic",
           "name": "Google Tasks",
+          "description": null,
+          "apkFileType": "APK",
+          "appIconColor": "#4285F4",
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": []
+    },
+    {
+      "name": "Example Patch",
+      "description": "Example patch to start with.",
+      "default": true,
+      "dependencies": [
+        "BytecodePatch"
+      ],
+      "compatiblePackages": [
+        {
+          "packageName": "com.example.app",
+          "name": "XYZ app",
           "description": null,
           "apkFileType": "APK",
           "appIconColor": "#4285F4",
