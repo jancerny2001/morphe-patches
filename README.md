@@ -5,7 +5,7 @@ jancerny2001 Morphe Patches.
 ## ❓ About
 
 Currently, this repository contains a single patch for the Czech ISIC app "**Alive App**" (com.bootiq2.gtsisic) to allow screenshots of cards by clearing the FLAG_SECURE flag.
-⚠️ It is important to also apply the ["Change installer source" Morphe core patch](https://github.com/MorpheApp/morphe-core), otherwise the Alive App will not let you use it.
+⚠️ It is important to also apply the ["Change installer source"](https://github.com/MorpheApp/morphe-patches#change-installer-source) Morphe core Universal patch, and set it as "Google Play", otherwise the Alive App will not let you use it.
 
 Tested on [Alive App version 3.5.0](https://apkpure.com/alive-app/com.bootiq2.gtsisic/download/3.5.0), but it should work on all future versions as well.
 
