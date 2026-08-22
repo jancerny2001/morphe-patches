@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/jancerny2001/morphe-patches/compare/v1.0.0...v1.1.0) (2026-08-22)
+
+### ✨ New Features
+
+* Remove template example ([49a3b2e](https://github.com/jancerny2001/morphe-patches/commit/49a3b2e827647918836af731e5dcea8112b8048d))
+
 ## [1.1.0-dev.1](https://github.com/jancerny2001/morphe-patches/compare/v1.0.0...v1.1.0-dev.1) (2026-08-22)
 
 ### ✨ New Features
