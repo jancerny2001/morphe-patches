@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-08-22T13:15:46",
-  "description": "## [1.1.2](https://github.com/jancerny2001/morphe-patches/compare/v1.1.1...v1.1.2) (2026-08-22)\n\n### 🐛 Bug Fixes\n\n* Better fingerprint ([821562a](https://github.com/jancerny2001/morphe-patches/commit/821562add6083a8b88fab1c6acf8a57028a3febd))\n* Better fingerprint ([9fb5005](https://github.com/jancerny2001/morphe-patches/commit/9fb500512ada5fe65f5fd5c127d522fdde401f9f))",
-  "download_url": "https://github.com/jancerny2001/morphe-patches/releases/download/v1.1.2/patches-1.1.2.mpp",
+  "created_at": "2026-08-22T13:54:40",
+  "description": "## [1.2.0-dev.3](https://github.com/jancerny2001/morphe-patches/compare/v1.2.0-dev.2...v1.2.0-dev.3) (2026-08-22)\n\n### ✨ New Features\n\n* Update README ([2ec3c0d](https://github.com/jancerny2001/morphe-patches/commit/2ec3c0d66dabcfe655e9d92cf6aa9a9c14b15c40))",
+  "download_url": "https://github.com/jancerny2001/morphe-patches/releases/download/v1.2.0-dev.3/patches-1.2.0-dev.3.mpp",
   "signature_download_url": "",
-  "version": "1.1.2"
+  "version": "1.2.0-dev.3"
 }
