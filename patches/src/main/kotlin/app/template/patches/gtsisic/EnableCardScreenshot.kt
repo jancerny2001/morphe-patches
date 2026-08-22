@@ -1,17 +1,14 @@
 package app.template.patches.gtsisic
 
 import app.morphe.patcher.core.Compatibility
+import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
+import app.morphe.patcher.extensions.InstructionExtensions.clearBody
 import app.morphe.patcher.patch.bytecodePatch
-import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
-import com.android.tools.smali.dexlib2.immutable.instruction.ImmutableInstructionInvokeVirtual
-import com.android.tools.smali.dexlib2.immutable.reference.ImmutableMethodReference
 
 @Suppress("unused")
 val enableCardScreenshotPatch = bytecodePatch(
     name = "Enable card screenshot",
-    description = "Replaces window.addFlags(FLAG_SECURE) with clearFlags to allow screenshots."
+    description = "Always clears FLAG_SECURE to allow screenshots on all screens."
 ) {
     compatibleWith(
         Compatibility(
@@ -21,30 +18,29 @@ val enableCardScreenshotPatch = bytecodePatch(
     )
 
     execute {
-        // Najdeme metodu podle fingerprintu
+        // Najdeme metodu pomocí fingerprintu
         val method = SecureFlagMethodFingerprint.method ?: return@execute
-        val instructions = method.implementation?.instructions ?: return@execute
 
-        // Projdeme instrukce a nahradíme invoke-virtual addFlags za clearFlags
-        for (i in instructions.indices) {
-            val insn = instructions[i]
-            if (insn.opcode == Opcode.INVOKE_VIRTUAL) {
-                val methodRef = (insn as? ReferenceInstruction)?.reference as? MethodReference
-                if (methodRef?.name == "addFlags" &&
-                    methodRef.parameterTypes?.firstOrNull() == "I"
-                ) {
-                    // Vytvoříme novou referenci na clearFlags se stejnými parametry
-                    val newMethodRef = ImmutableMethodReference(
-                        definingClass = methodRef.definingClass,
-                        name = "clearFlags",
-                        parameterTypes = methodRef.parameterTypes?.toList() ?: emptyList(),
-                        returnType = methodRef.returnType
-                    )
-                    // Vytvoříme novou instrukci a nahradíme původní
-                    val newInsn = ImmutableInstructionInvokeVirtual(newMethodRef)
-                    method.replaceInstruction(i, newInsn)
-                }
-            }
-        }
+        // Smažeme celé původní tělo metody
+        method.clearBody()
+
+        // Vložíme nové instrukce, které vždy provedou clearFlags(8192)
+        method.addInstructions(
+            0,
+            """
+                # Získáme okno z proměnné this.l0
+                iget-object v0, p0, Lm69;->l0:Landroid/view/Window;
+                
+                # Konstanta FLAG_SECURE = 8192 = 0x2000
+                const/16 v1, 0x2000
+                
+                # Zavoláme window.clearFlags(FLAG_SECURE)
+                invoke-virtual {v0, v1}, Landroid/view/Window;->clearFlags(I)V
+                
+                # Vrátíme lu8.a (původní návratová hodnota)
+                sget-object v0, Liu8;->a:Liu8;
+                return-object v0
+            """
+        )
     }
 }
