@@ -1,3 +1,10 @@
+## [1.0.0-dev.2](https://github.com/jancerny2001/morphe-patches/compare/v1.0.0-dev.1...v1.0.0-dev.2) (2026-08-22)
+
+### 🐛 Bug Fixes
+
+* gtsisic 5 ([19fd6f3](https://github.com/jancerny2001/morphe-patches/commit/19fd6f3c2dcf8071c414bc83291c154b0b168cca))
+* gtsisic 5 ([a2a3bfd](https://github.com/jancerny2001/morphe-patches/commit/a2a3bfd41777697fed0f59c1aa330e8d26417857))
+
 ## 1.0.0-dev.1 (2026-08-22)
 
 ### 🐛 Bug Fixes
