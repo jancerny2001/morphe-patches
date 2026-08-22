@@ -1,9 +1,9 @@
 package app.jancerny2001.patches.gtsisic
 
 import app.morphe.patcher.Fingerprint
-import app.morphe.patcher.fingerprint.AccessFlags
-import app.morphe.patcher.fingerprint.literal
-import app.morphe.patcher.fingerprint.methodCall
+import app.morphe.patcher.literal
+import app.morphe.patcher.methodCall
+import com.android.tools.smali.dexlib2.AccessFlags
 
 object SecureFlagMethodFingerprint : Fingerprint(
     definingClass = "L",
